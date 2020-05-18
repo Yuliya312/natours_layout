@@ -58,7 +58,7 @@ export default {
     top: 6rem;
     right: 6rem;
     border-radius: 50%;
-    z-index: 5;
+    z-index: 50;
     box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
     text-align: center;
     cursor: pointer;
@@ -99,15 +99,6 @@ export default {
     }
   }
 
-  /* &__checkbox:checked ~ &__background {
-    transform: scale(80);
-  }
-
-  &__checkbox:checked ~ &__nav {
-    opacity: 1;
-    width: 100%;
-  } */
-
   &__icon {
     position: relative;
     margin-top: 3.5rem;
@@ -145,20 +136,6 @@ export default {
   &__button:hover &__icon::after {
     top: 1rem;
   }
-
-  /* &__checkbox:checked + &__button &__icon {
-    background-color: transparent;
-  } */
-
-  /* &__checkbox:checked + &__button &__icon::before {
-    top: 0;
-    transform: rotate(135deg);
-  }
-
-  &__checkbox:checked + &__button &__icon::after {
-    top: 0;
-    transform: rotate(-135deg);
-  } */
 }
 
 .section-about {

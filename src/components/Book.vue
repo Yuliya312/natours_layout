@@ -79,7 +79,6 @@
   background-size: cover;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
-  height: 50rem;
 
   @include respond(tab-land) {
     background-image: linear-gradient(
@@ -102,7 +101,7 @@
   }
 
   &__form {
-    width: 40%;
+    width: 50%;
     padding: 6rem;
 
     @include respond(tab-land) {
@@ -110,7 +109,7 @@
     }
 
     @include respond(tab-port) {
-      width: calc(100% - 12rem);
+      width: 70%;
     }
   }
 }
@@ -166,6 +165,11 @@
   &__radio-group {
     width: 49%;
     display: inline-block;
+
+    @include respond(tab-port) {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
   }
 
   &__radio-input {

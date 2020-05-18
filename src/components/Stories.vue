@@ -117,6 +117,7 @@ figure {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
 
     @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
       -webkit-clip-path: circle(50% at 50% 50%);
@@ -128,6 +129,11 @@ figure {
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
+    }
+
+    @include respond(small-phone) {
+      float: none;
+      transform: translateX(30%);
     }
   }
 

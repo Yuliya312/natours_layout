@@ -4,15 +4,18 @@
       <picture class="footer__logo">
         <source
           srcset="
-            img/logo-green-small-1x.png 1x,
-            img/logo-green-small-2x.png 2x
+            ../assets/images/logo-green-small-1x.png 1x,
+            ../assets/images/logo-green-small-2x.png 2x
           "
           media="(max-width: 37.5em)"
         />
         <img
-          srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x"
+          srcset="
+            ../assets/images/logo-green-1x.png 1x,
+            ../assets/images/logo-green-2x.png 2x
+          "
           alt="Full logo"
-          src="img/logo-green-2x.png"
+          src="../assets/images/logo-green-2x.png"
         />
       </picture>
     </div>
