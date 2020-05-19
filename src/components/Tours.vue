@@ -118,7 +118,7 @@
         v-if="isInfoPopupVisible"
         :class="{ popup__visible: isInfoPopupVisible }"
       >
-        <Popup @closePopup="closeInfoPopup"> </Popup>
+        <Popup @closePopup="closeInfoPopup" @bookTour="bookNow"> </Popup>
       </div>
     </transition>
   </section>
@@ -126,6 +126,7 @@
 
 <script>
 import Popup from "@/components/Popup";
+import router from "../router/index";
 
 export default {
   name: "tours",
@@ -138,6 +139,10 @@ export default {
     };
   },
   methods: {
+    bookNow() {
+      this.isInfoPopupVisible = false;
+      router.push({ name: "home", hash: "#section-book" });
+    },
     closeInfoPopup() {
       this.isInfoPopupVisible = false;
     },

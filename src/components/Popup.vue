@@ -33,9 +33,9 @@
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <a href="#section-tours" class="btn btn--green" @click="closePopup"
-            >Book now</a
-          >
+          <button class="btn btn--green" @click="bookTour">
+            Book now
+          </button>
         </div>
       </div>
     </transition>
@@ -53,6 +53,9 @@ export default {
   methods: {
     closePopup() {
       this.$emit("closePopup");
+    },
+    bookTour() {
+      this.$emit("bookTour");
     }
   },
   mounted() {
@@ -100,6 +103,10 @@ export default {
   &__left {
     width: 33.333333%;
     display: table-cell;
+
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__right {
@@ -107,6 +114,10 @@ export default {
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
+
+    @include respond(tab-port) {
+      width: 100%;
+    }
   }
 
   &__img {
@@ -130,6 +141,10 @@ export default {
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(tab-land) {
+      column-count: 1;
+    }
   }
 
   &__close {
@@ -155,7 +170,7 @@ export default {
 }
 
 .grow-enter,
-.fade-leave-to {
+.grow-leave-to {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.25);
 }

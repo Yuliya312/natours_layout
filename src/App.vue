@@ -9,6 +9,7 @@
 <script>
 import EmptyLayout from "@/layouts/EmptyLayout";
 import HomeLayout from "@/layouts/HomeLayout";
+import NavToggle from "@/layouts/EmptyLayout";
 
 export default {
   computed: {
@@ -17,6 +18,7 @@ export default {
     }
   },
   components: {
+    NavToggle,
     EmptyLayout,
     HomeLayout
   }

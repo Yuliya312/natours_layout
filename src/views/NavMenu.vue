@@ -1,6 +1,7 @@
 <template>
   <div class="navigation">
-    <button class="close">X</button>
+    <slot name="nav-toggle"></slot>
+    <button class="close" @click="closeNav">X</button>
     <nav class="navigation__nav">
       <ul class="navigation__list">
         <li class="navigation__item">
@@ -53,6 +54,17 @@
   </div>
 </template>
 
+<script>
+export default {
+  name: "nav-menu",
+  methods: {
+    closeNav() {
+      this.$router.push("/");
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 .navigation {
   height: 90vh;
@@ -61,27 +73,6 @@
     $color-primary-dark,
     $color-primary-light
   );
-  opacity: 1;
-  /* height: 6rem;
-  width: 6rem;
-  border-radius: 50%;
-  position: fixed;
-  top: 6.5rem;
-  right: 6.5rem;
-  background-image: radial-gradient($color-primary-light, $color-primary-dark);
-  z-index: 100; */
-
-  /* &__nav {
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1500;
-
-    opacity: 0;
-    width: 0;
-    transition: all 0.8s;
-  } */
 
   &__list {
     @include absCenter;
