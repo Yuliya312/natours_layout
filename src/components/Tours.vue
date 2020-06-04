@@ -162,7 +162,7 @@ export default {
 
   &__side {
     height: 52rem;
-    transition: all 0.8s ease;
+    transition: transform 0.8s ease;
     position: absolute;
     top: 0;
     left: 0;

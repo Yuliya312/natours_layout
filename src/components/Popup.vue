@@ -166,7 +166,7 @@ export default {
 }
 
 .grow-enter-active {
-  transition: all 0.3s ease 0.2s;
+  transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
 }
 
 .grow-enter,

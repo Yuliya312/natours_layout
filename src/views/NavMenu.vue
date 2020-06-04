@@ -94,7 +94,7 @@ export default {
         $color-white 50%
       );
       background-size: 220%;
-      transition: all 0.4s;
+      transition: background-position 0.4s, color 0.4s, transform 0.4s;
 
       span {
         margin-right: 1.5rem;

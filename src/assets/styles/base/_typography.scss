@@ -57,7 +57,7 @@ body {
   background-clip: text;
   color: transparent;
   letter-spacing: 2px;
-  transition: all 0.2s;
+  transition: text-shadow 0.2s, transform 0.2s;
   margin: 0;
 
   @include respond(tab-port) {
