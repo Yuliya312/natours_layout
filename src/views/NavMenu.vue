@@ -4,49 +4,13 @@
     <button class="close" @click="closeNav">X</button>
     <nav class="navigation__nav">
       <ul class="navigation__list">
-        <li class="navigation__item">
+        <li class="navigation__item" v-for="link in links" :key="link.number">
           <router-link
-            :to="{ name: 'home', hash: '#section-about' }"
+            :to="{ name: 'home', hash: link.hash }"
             class="navigation__link"
           >
-            <span>01</span>
-            About Natours
-          </router-link>
-        </li>
-        <li class="navigation__item">
-          <router-link
-            :to="{ name: 'home', hash: '#section-features' }"
-            class="navigation__link"
-          >
-            <span>02</span>
-            Your benfits
-          </router-link>
-        </li>
-        <li class="navigation__item">
-          <router-link
-            :to="{ name: 'home', hash: '#section-tours' }"
-            class="navigation__link"
-          >
-            <span>03</span>
-            Popular Tours
-          </router-link>
-        </li>
-        <li class="navigation__item">
-          <router-link
-            :to="{ name: 'home', hash: '#section-stories' }"
-            class="navigation__link"
-          >
-            <span>04</span>
-            Stories
-          </router-link>
-        </li>
-        <li class="navigation__item">
-          <router-link
-            :to="{ name: 'home', hash: '#section-book' }"
-            class="navigation__link"
-          >
-            <span>05</span>
-            Book Now
+            <span>{{ link.number }}</span>
+            {{ link.title }}
           </router-link>
         </li>
       </ul>
@@ -57,6 +21,35 @@
 <script>
 export default {
   name: "nav-menu",
+  data: () => ({
+    links: [
+      {
+        number: "01",
+        hash: "#section-features",
+        title: "About Natours"
+      },
+      {
+        number: "02",
+        hash: "#section-features",
+        title: "Your benfits"
+      },
+      {
+        number: "03",
+        hash: "#section-tours",
+        title: "About Natours"
+      },
+      {
+        number: "04",
+        hash: "#section-stories",
+        title: "Popular Tours"
+      },
+      {
+        number: "05",
+        hash: "#section-book",
+        title: "Book Now"
+      }
+    ]
+  }),
   methods: {
     closeNav() {
       this.$router.push("/");
