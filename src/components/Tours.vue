@@ -6,100 +6,34 @@
       </h2>
     </div>
     <div class="row">
-      <div class="col-1-of-3">
+      <div class="col-1-of-3" v-for="card in cards" :key="card.id">
         <div class="card">
           <div class="card__side card__side--front">
-            <div class="card__picture card__picture--1">
+            <div class="card__picture" :class="card.class">
               &nbsp;
             </div>
             <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--1">
-                The sea explorer
+              <span class="card__heading-span" :class="card.titleClass">
+                {{ card.title }}
               </span>
             </h4>
             <div class="card__details">
               <ul class="card__details-list">
-                <li class="card__details__item">3 day tour</li>
-                <li class="card__details__item">Up to 30 people</li>
-                <li class="card__details__item">2 tour guides</li>
-                <li class="card__details__item">Sleep in cozy hotels</li>
-                <li class="card__details__item">Difficulty: easy</li>
+                <li
+                  class="card__details__item"
+                  v-for="cardText in card.cardList"
+                  :key="cardText.id"
+                >
+                  {{ cardText.text }}
+                </li>
               </ul>
             </div>
           </div>
-          <div class="card__side card__side--back card__side--back-1">
+          <div class="card__side card__side--back" :class="card.classBackSide">
             <div class="card__cta">
               <div class="card__price-box">
                 <p class="card__price-only">Only</p>
-                <p class="card__price-value">$297</p>
-              </div>
-              <button class="btn btn--white" @click="showPopupInfo()">
-                Book now!
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-1-of-3">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__picture card__picture--2">
-              &nbsp;
-            </div>
-            <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--2">
-                The forest hiker
-              </span>
-            </h4>
-            <div class="card__details">
-              <ul class="card__details-list">
-                <li class="card__details__item">7 day tour</li>
-                <li class="card__details__item">Up to 40 people</li>
-                <li class="card__details__item">6 tour guides</li>
-                <li class="card__details__item">Sleep in provided tents</li>
-                <li class="card__details__item">Difficulty: medium</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back card__side--back-2">
-            <div class="card__cta">
-              <div class="card__price-box">
-                <p class="card__price-only">Only</p>
-                <p class="card__price-value">$497</p>
-              </div>
-              <button class="btn btn--white" @click="showPopupInfo()">
-                Book now!
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-1-of-3">
-        <div class="card">
-          <div class="card__side card__side--front">
-            <div class="card__picture card__picture--3">
-              &nbsp;
-            </div>
-            <h4 class="card__heading">
-              <span class="card__heading-span card__heading-span--3">
-                The snow adventurer
-              </span>
-            </h4>
-            <div class="card__details">
-              <ul class="card__details-list">
-                <li class="card__details__item">5 day tour</li>
-                <li class="card__details__item">Up to 15 people</li>
-                <li class="card__details__item">3 tour guides</li>
-                <li class="card__details__item">Sleep in provided tents</li>
-                <li class="card__details__item">Difficulty: hard</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card__side card__side--back card__side--back-3">
-            <div class="card__cta">
-              <div class="card__price-box">
-                <p class="card__price-only">Only</p>
-                <p class="card__price-value">$897</p>
+                <p class="card__price-value">{{ card.price }}</p>
               </div>
               <button class="btn btn--white" @click="showPopupInfo()">
                 Book now!
@@ -135,6 +69,98 @@ export default {
   },
   data() {
     return {
+      cards: [
+        {
+          id: 1,
+          class: "card__picture--1",
+          classBackSide: "card__side--back-1",
+          titleClass: "card__heading-span--1",
+          title: "The sea explorer",
+          cardList: [
+            {
+              id: 1,
+              text: "3 day tour"
+            },
+            {
+              id: 2,
+              text: "Up to 30 people"
+            },
+            {
+              id: 3,
+              text: "2 tour guides"
+            },
+            {
+              id: 4,
+              text: "Sleep in cozy hotels"
+            },
+            {
+              id: 5,
+              text: "Difficulty: easy"
+            }
+          ],
+          price: "$297"
+        },
+        {
+          id: 2,
+          class: "card__picture--2",
+          classBackSide: "card__side--back-2",
+          titleClass: "card__heading-span--2",
+          title: "The forest hiker",
+          cardList: [
+            {
+              id: 1,
+              text: "7 day tour"
+            },
+            {
+              id: 2,
+              text: "Up to 40 people"
+            },
+            {
+              id: 3,
+              text: "6 tour guides"
+            },
+            {
+              id: 4,
+              text: "Sleep in provided tents"
+            },
+            {
+              id: 5,
+              text: "Difficulty: medium"
+            }
+          ],
+          price: "$497"
+        },
+        {
+          id: 1,
+          class: "card__picture--3",
+          classBackSide: "card__side--back-3",
+          titleClass: "card__heading-span--3",
+          title: "The snow adventurer",
+          cardList: [
+            {
+              id: 3,
+              text: "5 day tour"
+            },
+            {
+              id: 2,
+              text: "Up to 15 people"
+            },
+            {
+              id: 3,
+              text: "3 tour guides"
+            },
+            {
+              id: 4,
+              text: "Sleep in provided tents"
+            },
+            {
+              id: 5,
+              text: "Difficulty: hard"
+            }
+          ],
+          price: "$897"
+        }
+      ],
       isInfoPopupVisible: false
     };
   },

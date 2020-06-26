@@ -7,19 +7,19 @@
 </template>
 
 <script>
-import EmptyLayout from "@/layouts/EmptyLayout";
+import NavLayout from "@/layouts/NavLayout";
 import HomeLayout from "@/layouts/HomeLayout";
-import NavToggle from "@/layouts/EmptyLayout";
+import NavToggle from "@/layouts/NavLayout";
 
 export default {
   computed: {
     layout() {
-      return (this.$route.meta.layout || "empty") + "-layout";
+      return (this.$route.meta.layout || "nav") + "-layout";
     }
   },
   components: {
     NavToggle,
-    EmptyLayout,
+    NavLayout,
     HomeLayout
   }
 };

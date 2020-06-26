@@ -8,55 +8,23 @@
       </video>
     </div>
     <div class="u-center-text u-margin-bottom-big">
-      <h2 class="heading-secondary">
-        We make people genuinely happy
-      </h2>
+      <h2 class="heading-secondary">{{ heading }}</h2>
     </div>
-    <div class="row">
+    <div class="row" v-for="story in stories" :key="story.id">
       <div class="story">
         <figure class="story__shape">
           <img
-            src="../assets/images/nat-8.jpg"
+            :src="'img/' + story.img"
             alt="Person on a tour"
             class="story__img"
           />
-          <figcaption class="story__caption">Mary Smith</figcaption>
+          <figcaption class="story__caption">{{ story.name }}</figcaption>
         </figure>
         <div class="story__text">
           <h3 class="heading-tertiary u-margin-bottom-small">
-            I had the best week ever with my family
+            {{ story.title }}
           </h3>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit, ipsum
-            dolor sit amet consectetur adipisicing elit Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit, ipsum dolor sit amet consectetur
-            adipisicing elit Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit, ipsum dolor sit amet consectetur adipisicing elit
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="story">
-        <figure class="story__shape">
-          <img
-            src="../assets/images/nat-9.jpg"
-            alt="Person on a tour"
-            class="story__img"
-          />
-          <figcaption class="story__caption">Jack Wilson</figcaption>
-        </figure>
-        <div class="story__text">
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            WOW! My life is complitely different now
-          </h3>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit, ipsum
-            dolor sit amet consectetur adipisicing elit Lorem, ipsum dolor sit
-            amet consectetur adipisicing elit, ipsum dolor sit amet consectetur
-            adipisicing elit Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit, ipsum dolor sit amet consectetur adipisicing elit
-          </p>
+          <p>{{ story.text }}</p>
         </div>
       </div>
     </div>
@@ -65,6 +33,41 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  name: "stories",
+  data() {
+    return {
+      heading: "We make people genuinely happy",
+      stories: [
+        {
+          id: 1,
+          img: "nat-8.14efd82b.jpg",
+          name: "Mary Smith",
+          title: "I had the best week ever with my family",
+          text: `Lorem, ipsum dolor sit amet consectetur adipisicing elit, ipsum
+            dolor sit amet consectetur adipisicing elit Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit, ipsum dolor sit amet consectetur
+            adipisicing elit Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit, ipsum dolor sit amet consectetur adipisicing elit`
+        },
+        {
+          id: 2,
+          img: "nat-9.b525a99b.jpg",
+          name: "Jack Wilson",
+          title: "WOW! My life is complitely different now",
+          text: `Lorem, ipsum dolor sit amet consectetur adipisicing elit, ipsum
+            dolor sit amet consectetur adipisicing elit Lorem, ipsum dolor sit
+            amet consectetur adipisicing elit, ipsum dolor sit amet consectetur
+            adipisicing elit Lorem, ipsum dolor sit amet consectetur adipisicing
+            elit, ipsum dolor sit amet consectetur adipisicing elit`
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 .bg-video {

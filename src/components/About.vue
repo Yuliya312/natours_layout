@@ -2,28 +2,17 @@
   <section class="section-about" id="section-about">
     <div class="u-center-text u-margin-bottom-big">
       <h2 class="heading-secondary">
-        Exciting tours for adventurous people
+        {{ title }}
       </h2>
     </div>
     <div class="row">
       <div class="col-1-of-2">
-        <h3 class="heading-tertiary u-margin-bottom-small">
-          Yu're going to fall in love with nature
-        </h3>
-        <p class="paragraph">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis
-          quas ea ut officia debitis, blanditiis amet eaque quis quasi minima
-          voluptatum possimus corporis, dignissimos saepe quidem corrupti
-          necessitatibus ad exercitationem.
-        </p>
-        <h3 class="heading-tertiary u-margin-bottom-small">
-          Live adventutes that you never had before
-        </h3>
-        <p class="paragraph">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-          cumque eum aperiam.
-        </p>
-
+        <div class="text" v-for="paragraph in paragraphs" :key="paragraph.id">
+          <h3 class="heading-tertiary u-margin-bottom-small">
+            {{ paragraph.title }}
+          </h3>
+          <p class="paragraph">{{ paragraph.text }}</p>
+        </div>
         <a href="#section-features" class="btn-text">Lern more &rarr;</a>
       </div>
       <div class="col-1-of-2">
@@ -65,6 +54,31 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  name: "about",
+  data() {
+    return {
+      title: "Exciting tours for adventurous people",
+      paragraphs: [
+        {
+          id: 1,
+          title: "Yu're going to fall in love with nature",
+          text: `Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perferendis quas ea ut officia debitis, blanditiis 
+                amet eaque quis quasi minima voluptatum possimus corporis, dignissimos saepe quidem corrupti necessitatibus ad 
+                exercitationem.`
+        },
+        {
+          id: 2,
+          title: "Live adventutes that you never had before",
+          text: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus cumque eum aperiam.`
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 .composition {

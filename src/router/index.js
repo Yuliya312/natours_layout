@@ -17,7 +17,7 @@ export default new VueRouter({
     {
       path: "/nav",
       name: "nav-menu",
-      meta: { layout: "empty" },
+      meta: { layout: "nav" },
       component: () => import("../views/NavMenu.vue")
     },
     {

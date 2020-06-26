@@ -1,56 +1,62 @@
 <template>
   <section class="section-features">
     <div class="row" id="section-features">
-      <div class="col-1-of-4">
+      <div
+        class="col-1-of-4"
+        v-for="feature_box in feature_boxes"
+        :key="feature_box.id"
+      >
         <div class="feature-box">
-          <span class="feature-box__icon feature-box__icon--world"></span>
+          <span class="feature-box__icon" :class="feature_box.class"></span>
           <h3 class="heading-tertiary u-margin-bottom-small">
-            Explore the world
+            {{ feature_box.title }}
           </h3>
-          <p class="feature-box__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            ipsum sapiente aspernatur.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-1-of-4">
-        <div class="feature-box">
-          <span class="feature-box__icon feature-box__icon--compass"></span>
-          <h3 class="heading-tertiary u-margin-bottom-small">Meet nature</h3>
-          <p class="feature-box__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            ipsum sapiente aspernatur.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-1-of-4">
-        <div class="feature-box">
-          <span class="feature-box__icon feature-box__icon--map"></span>
-          <h3 class="heading-tertiary u-margin-bottom-small">Find your way</h3>
-          <p class="feature-box__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            ipsum sapiente aspernatur.
-          </p>
-        </div>
-      </div>
-
-      <div class="col-1-of-4">
-        <div class="feature-box">
-          <span class="feature-box__icon feature-box__icon--heart"></span>
-          <h3 class="heading-tertiary u-margin-bottom-small">
-            Live a healthier life
-          </h3>
-          <p class="feature-box__text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            ipsum sapiente aspernatur.
-          </p>
+          <p class="feature-box__text">{{ feature_box.text }}</p>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  name: "features",
+  data() {
+    return {
+      feature_boxes: [
+        {
+          id: 1,
+          class: "feature-box__icon--world",
+          title: "Explore the world",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur."
+        },
+        {
+          id: 2,
+          class: "feature-box__icon--compass",
+          title: "Meet nature",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur."
+        },
+        {
+          id: 3,
+          class: "feature-box__icon--map",
+          title: "Find your way",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur."
+        },
+        {
+          id: 4,
+          class: "feature-box__icon--heart",
+          title: "Live a healthier life",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, ipsum sapiente aspernatur."
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 .feature-box {
