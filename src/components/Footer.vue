@@ -23,20 +23,8 @@
       <div class="col-1-of-2">
         <div class="footer__navigation">
           <ul class="footer__list">
-            <li class="footer__item">
-              <a href="#" class="footer__link">Company</a>
-            </li>
-            <li class="footer__item">
-              <a href="#" class="footer__link">Contact us</a>
-            </li>
-            <li class="footer__item">
-              <a href="#" class="footer__link">Carrers</a>
-            </li>
-            <li class="footer__item">
-              <a href="#" class="footer__link">Privacy policy</a>
-            </li>
-            <li class="footer__item">
-              <a href="#" class="footer__link">Terms</a>
+            <li class="footer__item" v-for="link in links" :key="link.id">
+              <a href="#" class="footer__link">{{ link.linkName }}</a>
             </li>
           </ul>
         </div>
@@ -51,6 +39,38 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  name: "footer",
+  data() {
+    return {
+      links: [
+        {
+          id: 1,
+          linkName: "Company"
+        },
+        {
+          id: 2,
+          linkName: "Contact us"
+        },
+        {
+          id: 3,
+          linkName: "Carrers"
+        },
+        {
+          id: 4,
+          linkName: "Privacy policy"
+        },
+        {
+          id: 5,
+          linkName: "Terms"
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style lang="scss">
 .footer {
